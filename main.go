@@ -185,6 +185,9 @@ func (session *viewerSession) initUIWithForm() {
 		AddButton("test", session.testAuth).
 		AddButton("save", session.closeForm)
 
+	session.enablePaste(form.GetFormItem(0).(*tview.InputField), form)
+	session.enablePaste(form.GetFormItem(1).(*tview.InputField), form)
+
 	formTreeFlex := tview.NewFlex()
 	if !session.cfg.HorizontalLayout {
 		formTreeFlex.SetDirection(tview.FlexRow)
